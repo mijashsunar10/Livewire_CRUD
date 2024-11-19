@@ -33,6 +33,21 @@ class TodoList extends Component
 
 
     } 
+
+    // public function delete($todoID)
+    // {
+    //     Todo::find($todoID)->delete();
+    //     session()->flash('success','Deleted');
+    // }
+
+     public function delete(Todo $todo)
+    {
+       $todo->delete();
+        session()->flash('danger','Deleted');
+    }
+
+
+
     public function render()
     {
 

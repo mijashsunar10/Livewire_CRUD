@@ -11,3 +11,8 @@
     {{-- <span class="text-red-500 text-xs block mt-2">Error</span> --}}
 
 </div>
+
+@if(session('danger'))
+
+            <span class="text-red-500 text-xs">{{session('danger')}}</span>
+ @endif
