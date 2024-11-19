@@ -46,6 +46,13 @@ class TodoList extends Component
         session()->flash('danger','Deleted');
     }
 
+    public function toggle($todoID)
+    {
+        $todo=Todo::find($todoID);
+        $todo->completed=!$todo->completed;
+        $todo->save();
+    }
+
 
 
     public function render()
