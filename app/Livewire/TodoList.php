@@ -7,9 +7,11 @@ use Illuminate\Auth\Events\Validated;
 use Livewire\Component;
 use Livewire\Atrributes\Rule;
 use Livewire\Attributes\Rule as AttributesRule;
+use Livewire\WithPagination;
 
 class TodoList extends Component
 {
+    use WithPagination;
     #[AttributesRule('required|min:3|max:50')]
     public $name;
 
@@ -36,7 +38,7 @@ class TodoList extends Component
 
         return view('livewire.todo-list',
     [
-        'todos'=>Todo::latest()->get()
+        'todos'=>Todo::latest()->paginate(5)
     ]);
     }
 
