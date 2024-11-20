@@ -68,6 +68,17 @@ class TodoList extends Component
         $this->reset('EditingTodoID','EditingnewName');
     }
 
+    public function update( )
+    {
+        $this->validateOnly('EditingnewName');
+        Todo::find($this->EditingTodoID)->update(
+            [
+                'name'=>$this->EditingnewName,
+            ]
+            );
+            $this->cancelEdit();
+    }
+
 
 
     public function render()

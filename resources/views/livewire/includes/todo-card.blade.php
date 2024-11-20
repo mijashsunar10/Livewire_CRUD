@@ -11,6 +11,7 @@
             @endif
 
             @if($EditingTodoID === $todo->id)
+            <div class="">
                 <input wire:model="EditingnewName" type="text" placeholder="Todo.."
                     class="bg-gray-100  text-gray-900 text-sm rounded block w-full p-2.5"
                     value="Todo Name">
@@ -18,6 +19,7 @@
                     @error('EditingnewName')
                     <span class="text-red-500 text-xs block">{{$message}}</span> 
                     @enderror
+                </div>
                     @else
                 <h3 class=" text-lg text-semibold text-gray-800">{{$todo->name}}</h3>
 
