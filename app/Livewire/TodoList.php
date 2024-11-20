@@ -17,6 +17,10 @@ class TodoList extends Component
 
     public $search;
 
+    public $EditingTodoID;
+
+    public $EditingnewName;
+
 
 
     public function create()
@@ -51,6 +55,17 @@ class TodoList extends Component
         $todo=Todo::find($todoID);
         $todo->completed=!$todo->completed;
         $todo->save();
+    }
+
+    public function edit($todoID)
+    {
+        $this->EditingTodoID=$todoID;
+        $this->EditingnewName=Todo::find($todoID)->name;
+    }
+
+    public function cancelEdit()
+    {
+        $this->reset('EditingTodoID','EditingnewName');
     }
 
 
